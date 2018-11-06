@@ -17,11 +17,11 @@
 //
 // To get the latest golex version:
 //
-//	$ go get -u github.com/cznic/golex
+//	$ go get -u modernc.org/golex
 //
 // Run time library
 //
-// Please see http://godoc.org/github.com/cznic/golex/lex.
+// Please see http://godoc.org/modernc.org/golex/lex.
 //
 // Changelog
 //

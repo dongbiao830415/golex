@@ -31,10 +31,10 @@
 //
 // -
 //
-//  [0]: http://godoc.org/github.com/cznic/golex
+//  [0]: http://godoc.org/modernc.org/golex
 //  [1]: http://en.wikipedia.org/wiki/Lexical_analysis
 //  [2]: http://golang.org/cmd/yacc/
-//  [3]: https://github.com/cznic/golex/blob/master/lex/example.l
+//  [3]: https://modernc.org/golex/blob/master/lex/example.l
 //  [4]: http://golang.org/pkg/io/#RuneReader
-//  [5]: https://github.com/cznic/golex/blob/master/lex/dfa
-package lex
+//  [5]: https://modernc.org/golex/blob/master/lex/dfa
+package lex // import "modernc.org/golex/lex"

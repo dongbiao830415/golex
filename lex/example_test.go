@@ -39,7 +39,7 @@
 //
 //		goto yyAction
 //	}
-package lex_test
+package lex_test // import "modernc.org/golex/lex"
 
 import (
 	"bytes"
@@ -47,7 +47,7 @@ import (
 	"go/token"
 	"unicode"
 
-	"github.com/cznic/golex/lex"
+	"modernc.org/golex/lex"
 )
 
 // Allocate Character classes anywhere in [0x80, 0xFF].

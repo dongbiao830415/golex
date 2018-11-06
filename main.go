@@ -14,7 +14,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/cznic/lex"
+	"modernc.org/lex"
 )
 
 const (
