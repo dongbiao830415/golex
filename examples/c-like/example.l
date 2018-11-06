@@ -12,7 +12,7 @@ import (
   "io"
 	"unicode"
 
-	"github.com/cznic/golex/lex"
+	"modernc.org/golex/lex"
 )
 
 // Allocate Character classes anywhere in [0x80, 0xFF].
