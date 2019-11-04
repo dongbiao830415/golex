@@ -7,10 +7,11 @@ package main
 import (
 	"fmt"
 	"log"
-	"modernc.org/lex"
-	"modernc.org/lexer"
 	"sort"
 	"strings"
+
+	"modernc.org/lex"
+	"modernc.org/lexer"
 )
 
 type renderGo struct {
@@ -107,7 +108,11 @@ func (r *renderGo) rules(l *lex.L) {
 		r.wprintf("yyrule%d: // %s\n", i, rule.Pattern)
 		act := strings.TrimSpace(rule.Action)
 		if act != "" && act != "|" {
-			r.wprintf("{\n")
+			if i+1 == len(l.Rules) {
+				r.wprintf("if true {// avoid go vet determining the below panic will not be reached\n")
+			} else {
+				r.wprintf("{\n")
+			}
 			r.w.Write([]byte(rule.Action))
 		}
 		if act != "|" {
@@ -124,8 +129,24 @@ func (r *renderGo) rules(l *lex.L) {
 }
 
 func (r *renderGo) scanFail(l *lex.L) {
-	r.wprintf("\ngoto yyabort // silence unused label error\n")
 	r.wprintf("\nyyabort: // no lexem recognized\n")
+}
+
+func (r *renderGo) ensureUsedLabels(l *lex.L) {
+	r.wprintf("//\n")
+	r.wprintf("// silence unused label errors for build and satisfy go vet reachability analysis\n")
+	r.wprintf("//\n")
+	r.wprintf("{")
+	r.wprintf("if false { \ngoto yyabort\n}\n")
+	r.wprintf("if false { \ngoto yystate0\n}\n")
+	for _, state := range l.Dfa {
+		iState := int(state.Index)
+		if _, ok := r.scStates[iState]; ok {
+			r.wprintf("if false {\ngoto yystate%d\n}\n", iState)
+		}
+	}
+	r.wprintf("}\n")
+	r.wprintf("\n")
 }
 
 func (r *renderGo) userCode(l *lex.L) {
@@ -232,9 +253,7 @@ func (r *renderGo) transitions(l *lex.L, state *lexer.NfaState) {
 
 func (r *renderGo) states(l *lex.L) {
 	yym := l.YYM != "yym"
-	r.wprintf("goto yystate%d // silence unused label error\n", 0)
 	if yym {
-		r.wprintf("goto yyAction // silence unused label error\n")
 		r.wprintf("yyAction:\n")
 		r.wprintf("switch yyrule {\n")
 		for i := range l.Rules[1:] {
@@ -244,9 +263,6 @@ func (r *renderGo) states(l *lex.L) {
 	}
 	for _, state := range l.Dfa {
 		iState := int(state.Index)
-		if _, ok := r.scStates[iState]; ok {
-			r.wprintf("goto yystate%d // silence unused label error\n", iState)
-		}
 		r.wprintf("yystate%d:\n", iState)
 		rule, ok := l.Accepts[state]
 		if !ok || !l.Rules[rule].EOL {
@@ -276,5 +292,6 @@ func (r renderGo) render(srcname string, l *lex.L) {
 	r.states(l)
 	r.rules(l)
 	r.scanFail(l)
+	r.ensureUsedLabels(l)
 	r.userCode(l)
 }
