@@ -13,6 +13,7 @@ import (
 	"io"
 	"log"
 	"os"
+	"unicode"
 
 	"modernc.org/lex"
 )
@@ -56,8 +57,12 @@ func (r *noRender) wprintf(s string, args ...interface{}) (n int, err error) {
 func q(c uint32) string {
 	switch c {
 	default:
-		s := fmt.Sprintf("%q", string(c))
-		return "'" + s[1:len(s)-1] + "'"
+		r := rune(c)
+		if r >= 0 && r <= unicode.MaxRune {
+			s := fmt.Sprintf("%q", string(r))
+			return "'" + s[1:len(s)-1] + "'"
+		}
+		return ""
 	case '\'':
 		return "'\\''"
 	case '"':
