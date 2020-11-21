@@ -6,3 +6,5 @@ require (
 	modernc.org/lex v1.0.0
 	modernc.org/lexer v1.0.0
 )
+
+go 1.13
