@@ -76,7 +76,7 @@ func main() {
 	log.SetFlags(log.Flags() | log.Lshortfile)
 	oflag := ""
 	var dfaflag, hflag, tflag, vflag, nodfaopt, bits32, eflag bool
-
+	var azDefine Define
 	flag.BoolVar(&dfaflag, "DFA", false, "write DFA on stdout and quit")
 	flag.BoolVar(&hflag, "h", false, "show help and exit")
 	flag.StringVar(&oflag, "o", oFile, "lexer output")
@@ -104,7 +104,7 @@ func main() {
 	if lname == "" {
 		lfile = stdin
 	} else {
-		if len(azDefine) <= 0 {
+		if azDefine.Size() <= 0 {
 			l, err := os.Open(lname)
 			if err != nil {
 				log.Fatal(err)
@@ -118,7 +118,9 @@ func main() {
 			if err != nil {
 				log.Fatal(err)
 			}
-			preprocess_input(b)
+			if err := azDefine.preprocess_input(b); err != nil {
+				log.Fatal(err)
+			}
 
 			if eflag {
 				if oflag == "" {
