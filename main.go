@@ -104,35 +104,24 @@ func main() {
 	if lname == "" {
 		lfile = stdin
 	} else {
-		if azDefine.Size() <= 0 {
-			l, err := os.Open(lname)
-			if err != nil {
-				log.Fatal(err)
-			}
-
-			defer l.Close()
-			lfile = bufio.NewReader(l)
-
-		} else {
-			b, err := ioutil.ReadFile(lname)
-			if err != nil {
-				log.Fatal(err)
-			}
-			if err := azDefine.preprocess_input(b); err != nil {
-				log.Fatal(err)
-			}
-
-			if eflag {
-				if oflag == "" {
-					oflag = oFile
-				}
-				efile := strings.TrimSuffix(oflag, ".go") + ".e"
-				ioutil.WriteFile(efile, b, 0644)
-			}
-
-			fi := bytes.NewReader(b)
-			lfile = bufio.NewReader(fi)
+		b, err := ioutil.ReadFile(lname)
+		if err != nil {
+			log.Fatal(err)
 		}
+		if err := azDefine.preprocess_input(b); err != nil {
+			log.Fatal(err)
+		}
+
+		if eflag {
+			if oflag == "" {
+				oflag = oFile
+			}
+			efile := strings.TrimSuffix(oflag, ".go") + ".e"
+			ioutil.WriteFile(efile, b, 0644)
+		}
+
+		fi := bytes.NewReader(b)
+		lfile = bufio.NewReader(fi)
 	}
 
 	l, err := lex.NewL(lname, lfile, nodfaopt, bits32)
