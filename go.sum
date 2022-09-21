@@ -4,5 +4,5 @@ modernc.org/fileutil v1.0.0 h1:Z1AFLZwl6BO8A5NldQg/xTSjGLetp+1Ubvl4alfGx8w=
 modernc.org/fileutil v1.0.0/go.mod h1:JHsWpkrk/CnVV1H/eGlFf85BEpfkrp56ro8nojIq9Q8=
 modernc.org/lex v1.0.0 h1:w0dxp18i1q+aSE7GkepvwzvVWTLoCIQ2oDgTFAV2JZU=
 modernc.org/lex v1.0.0/go.mod h1:G6rxMTy3cH2iA0iXL/HRRv4Znu8MK4higxph/lE7ypk=
-modernc.org/lexer v1.0.0 h1:D2xE6YTaH7aiEC7o/+rbx6qTAEr1uY83peKwkamIdQ0=
-modernc.org/lexer v1.0.0/go.mod h1:F/Dld0YKYdZCLQ7bD0USbWL4YKCyTDRDHiDTOs0q0vk=
+modernc.org/lexer v1.0.2 h1:pb/mI7mZDBjqWeLnhf777T0qWt7wCqJ//9NP2ESZCD0=
+modernc.org/lexer v1.0.2/go.mod h1:CqDIZ65Q1z38UWVfBrMdZRLwtktcF1WNQ3UVkKwlrls=
