@@ -1,10 +1,10 @@
+github.com/remyoudompheng/bigfft v0.0.0-20200410134404-eec4a21b6bb0/go.mod h1:qqbHyh8v60DhA7CoWK5oRCqLrMHRGoxYCSS9EjAz6Eo=
 golang.org/x/exp v0.0.0-20181106170214-d68db9428509 h1:k21GX33vzpH/syMF7TgrLxe8ILtvwbyuHtEO3ebR82E=
 golang.org/x/exp v0.0.0-20181106170214-d68db9428509/go.mod h1:CJ0aWSM057203Lf6IL+f9T1iT9GByDxfZKAQTCR3kQA=
-modernc.org/fileutil v1.0.0/go.mod h1:JHsWpkrk/CnVV1H/eGlFf85BEpfkrp56ro8nojIq9Q8=
 modernc.org/fileutil v1.1.2 h1:Gcd7C/E4gI3fq/qV3YiwFIhDq1LPIWFwkD+BijLByzw=
 modernc.org/fileutil v1.1.2/go.mod h1:HdjlliqRHrMAI4nVOvvpYVzVgvRSK7WnoCiG0GUWJNo=
-modernc.org/lex v1.1.0 h1:iMSXkjiXhFsYBoaoCK546rE4IiC6wi2chpC52Y8ZNdI=
-modernc.org/lex v1.1.0/go.mod h1:+ojes+j0JYCaqwKYCBjcUavscJHmWFKvViUTMU4VjLA=
-modernc.org/lexer v1.0.0/go.mod h1:F/Dld0YKYdZCLQ7bD0USbWL4YKCyTDRDHiDTOs0q0vk=
+modernc.org/lex v1.1.1 h1:prSCNTLw1R4rn7M/RzwsuMtAuOytfyR3cnyM07P+Pas=
+modernc.org/lex v1.1.1/go.mod h1:6r8o8DLJkAnOsQaGi8fMoi+Vt6LTbDaCrkUK729D8xM=
 modernc.org/lexer v1.0.4 h1:hU7xVbZsqwPphyzChc7nMSGrsuaD2PDNOmzrzkS5AlE=
 modernc.org/lexer v1.0.4/go.mod h1:tOajb8S4sdfOYitzCgXDFmbVJ/LE0v1fNJ7annTw36U=
+modernc.org/mathutil v1.5.0/go.mod h1:mZW8CKdRPY1v87qxC/wUdX5O1qDzXMP5TH3wjfpga6E=

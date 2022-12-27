@@ -3,7 +3,7 @@ module modernc.org/golex
 go 1.19
 
 require (
-	modernc.org/lex v1.1.0
+	modernc.org/lex v1.1.1
 	modernc.org/lexer v1.0.4
 )
 
