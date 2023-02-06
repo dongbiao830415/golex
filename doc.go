@@ -3,7 +3,7 @@
 // license that can be found in the LICENSE file.
 
 // Golex is a lex/flex like (not fully POSIX lex compatible) utility.
-// It renders .l formated data (http://flex.sourceforge.net/manual/Format.html#Format) to Go source code.
+// It renders .l formated data (https://westes.github.io/flex/manual/Format.html#Format) to Go source code.
 // The .l data can come from a file named in a command line argument.
 // If no non-opt args are given, golex reads stdin.
 //
